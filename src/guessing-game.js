@@ -10,13 +10,14 @@ class GuessingGame {
     );
     this.min = min;
     this.max = max;
+    this.isLower = false;
+    this.isGreater = false;
     return this.arrayOfNumbers;
   }
 
   guess() {
-    this.resultGuess = Math.floor(
-      Math.random() * (this.max - this.min + 1) + this.min
-    );
+    this.resultGuess = Math.round((this.max - this.min) / 2) + this.min - 1;
+    // Math.floor(Math.random() * (this.max - this.min + 1)) + this.min;
     return this.resultGuess;
   }
 
