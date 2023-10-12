@@ -1,34 +1,23 @@
 class GuessingGame {
-  constructor() {
-    this.arrayOfNumbers = [];
-  }
+  constructor() {}
 
   setRange(min, max) {
-    this.arrayOfNumbers = Array.from(
-      { length: max - min + 1 },
-      (_, i) => min + i
-    );
     this.min = min;
     this.max = max;
-    this.isLower = false;
-    this.isGreater = false;
-    return this.arrayOfNumbers;
   }
 
   guess() {
-    this.resultGuess = Math.round((this.max - this.min) / 2) + this.min - 1;
-    // Math.floor(Math.random() * (this.max - this.min + 1)) + this.min;
+    this.resultGuess = Math.round((this.max + this.min) / 2);
+
     return this.resultGuess;
   }
 
   lower() {
-    let middle = Math.round((this.max - this.min) / 2) + this.min;
-    this.max = middle + 1;
+    this.max = this.resultGuess;
   }
 
   greater() {
-    let middle = Math.round((this.max - this.min) / 2) + this.min;
-    this.min = middle - 1;
+    this.min = this.resultGuess;
   }
 }
 
